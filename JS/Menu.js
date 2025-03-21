@@ -37,7 +37,6 @@ function goToMainSettings() {
 }
 
 function goToSetSelect() {
-    console.log("question selection button clicked");
     window.location.href = '../HTML/questionSelect.html';
 }
 

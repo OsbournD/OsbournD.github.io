@@ -1,7 +1,4 @@
-﻿if (sessionStorage.getItem('userID') == null) {
-    window.location.href = '../HTML/login.html';
-}
-const basicBot = new Image();
+﻿const basicBot = new Image();
 const bossBot = new Image();
 
 const basicPirateBot = new Image();
@@ -67,6 +64,14 @@ let canvas, ctx;
 
 function selectWaypoints() { // Depending on the current level opened, draws a different shaped path.
 
+	const currentPath = window.location.pathname;
+	if (currentPath.includes("level1.html")) {
+		currentLevel = sessionStorage.setItem('level','level1');
+	} else if (currentPath.includes("level2.html")) {
+		currentLevel = sessionStorage.setItem('level','level2');
+	} else {
+		currentLevel = sessionStorage.setItem('level','introLevel');
+	}
     currentLevel = sessionStorage.getItem('level');
 
     if (currentLevel == 'level1') {

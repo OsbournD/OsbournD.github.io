@@ -2,6 +2,8 @@ const menuMusic = new Audio("../GameMusic/685206__x1shi__video-game-music-seamle
 
 window.onload = function() {
 
+	sessionStorage.setItem('unlock','2');
+
 	var isMusicDisabled = localStorage.getItem('musicDisabled') === 'false';
 
 	if (isMusicDisabled) {
