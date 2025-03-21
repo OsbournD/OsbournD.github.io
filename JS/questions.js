@@ -208,12 +208,12 @@ function createMultipleChoiceQuestion(currentSet) {
         return;
     }
 
-    // Extract question components
+    //Extract question components
     const question = currentSet[0][0];
     const answers = currentSet[1];
     const correctAnswers = currentSet[2];
 
-    // Get the popup element
+    //Get the popup element
     let popup = document.getElementById('questionPopup');
 
     // Add styles if they don't exist
@@ -251,10 +251,10 @@ function createMultipleChoiceQuestion(currentSet) {
         document.head.appendChild(styles);
     }
 
-    // Create a hidden input field to store the correct answers as JSON
+    //Create a hidden input field to store the correct answers as JSON
     const hiddenDataId = 'mc-data-' + Math.random().toString(36).substring(2, 9);
 
-    // Create the HTML structure
+    //Create the HTML structure
     popup.innerHTML = `
         <h2>${question}</h2>
         <div id="answers">
@@ -280,23 +280,23 @@ function createMultipleChoiceQuestion(currentSet) {
 function checkboxAnswerSelectionWithHiddenData(hiddenDataId, totalAnswersCount) {
     stopSpeech();
 
-    // Remove the submit button
+    //Remove the submit button
     const submitButton = document.getElementById('quest-submit');
     if (submitButton) {
         submitButton.remove();
     }
 
-    // Get correct answers from hidden field
+    //Get correct answers from hidden field
     const correctAnswersArray = JSON.parse(document.getElementById(hiddenDataId).value);
     
-    // Get all options and find which ones are selected
+    //Get all options and find which ones are selected
     const options = document.querySelectorAll('.mc-option');
     const selectedOptions = Array.from(options).filter(opt => opt.classList.contains('selected'));
     
-    // Get the values of selected options
+    //Get the values of selected options
     const selectedAnswers = selectedOptions.map(opt => decodeURIComponent(opt.dataset.value));
     
-    // Calculate score using existing logic
+    //Calculate score using existing logic
     let score = 0;
     correctAnswersArray.forEach((answer) => {
         if (selectedAnswers.includes(answer)) {
