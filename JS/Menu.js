@@ -40,4 +40,8 @@ function goToSetSelect() {
     window.location.href = '../HTML/questionSelect.html';
 }
 
+function menuToGameSelect() {
+    window.location.href = '../HTML/gameSelect.html';
+}
+
 window.onload = setup;

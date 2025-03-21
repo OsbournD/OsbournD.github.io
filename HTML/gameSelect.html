@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Portal Hub</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #00c2ff;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        header {
+            background-color: #ff8a00;
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 50px 20px;
+            max-width: 1200px;
+        }
+        
+        .game-card {
+            background-color: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            width: 350px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+        }
+        
+        .game-image {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border-bottom: 4px solid #ff8a00;
+        }
+        
+        .game-info {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .game-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .game-description {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        
+        .play-button {
+            background-color: #ff8a00;
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .play-button:hover {
+            background-color: #ffa94d;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .game-card {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SWIGGLE GAMES</h1>
+    </header>
+
+    
+    <div class="container">
+        <div class="game-card">
+            <img src="../Assets/bossBot.png" alt="Bots Against The Web!" class="game-image">
+            <div class="game-info">
+                <h2 class="game-title">Bots Against The Web!</h2>
+                <p class="game-description">Embark on an epic journey, stopping fearsome bots from taking over the world.</p>
+                <button class="play-button" onclick="playBotsAgainstTheWeb()">PLAY NOW</button>
+            </div>
+        </div>
+        
+        <div class="game-card">
+            <img src="../Assets/swiggleBot.png" alt="The Swiggles Game" class="game-image">
+            <div class="game-info">
+                <h2 class="game-title">The Swiggles Game</h2>
+                <p class="game-description">Insert Description Here</p>
+                <button class="play-button" onclick="playTheSwigglesGame()">PLAY NOW</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../JS/gameSelect.js"></script>
+</body>
+</html>
