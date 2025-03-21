@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Level 1 - Bots Against The Web!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../CSS/level1.css">
+
+</head>
+
+<body>		
+	<div id="gameWrapper">
+			<div id="towerHotbar" class="tower-hotbar">
+				<h3>Towers</h3>
+				<div class="hint-container">
+					<div class="tower-slot hint-target" data-tower-type="basic" data-tower-cost="1" data-hint="This is a Basic Tower. It fires projectiles at enemies within its range. Click to select it, then click on the map to place it!">
+						<img src="../Assets/basicTower.png" alt="Basic Tower" class="tower-icon">
+						<div class="tower-info">
+							<span class="tower-name">Basic Tower</span>
+							<span class="tower-cost">1 Point</span>
+						</div>
+					</div>
+					<div class="hint-overlay"></div>
+				</div>
+				<br></br>
+				<div class="hint-container">
+					<div class="tower-slot hint-target" data-tower-type="freeze" data-tower-cost="2" data-hint="This is a Freeze Tower. It slows down enemies within its range, making them easier to hit. Costs 2 tower points.">
+						<img src="../Assets/freezeTower.png" alt="Freeze Tower" class="tower-icon">
+						<div class="tower-info">
+							<span class="tower-name">Freeze Tower</span>
+							<span class="tower-cost">2 Points</span>
+						</div>
+					</div>
+					<div class="hint-overlay"></div>
+				</div>
+				<br></br>
+				<div class="hint-container">
+					<div class="tower-slot hint-target" data-tower-type="lightning" data-tower-cost="3" data-hint="This is a Lightning Tower. It hits multiple enemies with each shot. Costs 3 tower points.">
+						<img src="../Assets/teslaTower.png" alt="Lightning Tower" class="tower-icon">
+						<div class="tower-info">
+							<span class="tower-name">Lightning Tower</span>
+							<span class="tower-cost">3 Points</span>
+						</div>
+					</div>
+					<div class="hint-overlay"></div>
+				</div>
+			</div>
+		<div class="game-main">
+			<div id="canvasContainer">
+				<div id="hud">
+
+					<div class="hint-container">
+						<div id="levelHP" class="hint-target" data-hint="This is your health bar. It can go down if a bot reaches the end of the path. Keep it from reaching 0 or the bots will break the web!"></div>
+						<div class="hint-overlay"></div>
+					</div>
+					
+					<div class="hint-container">
+						<div id="towerPoints" class="hint-target" data-hint="Tower Points are how you place new towers. Click on the screen when you have more than 0 tower points to place a tower! Try placing towers near corners so they cover more of the path."></div>
+						<div class="hint-overlay"></div>
+					</div>
+
+					<div class="hint-container">
+						<div id="currentScore" class="hint-target" data-hint="This is your current score, you can increase your score by stopping the bots and by reaching a new wave."></div>
+						<div class="hint-overlay"></div>
+					</div>
+
+					<div class="hint-container">
+						<div id="highScore" class="hint-target" data-hint="This is your high score! Beat it to get a higher place on the leaderboard."></div>
+						<div class="hint-overlay"></div>
+					</div>
+					
+					<div class="hint-container">
+						<div id="WaveCounter" class="hint-target" data-hint="This is the wave you are currently on, the number of bots that spawn is equal to the wave, except from every 5th wave which is a boss round!"></div>
+						<div class="hint-overlay"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<img src="../Assets/AgentSwiggle.png" id="AgentSwiggle" alt="secret agent swigglebot" width="200" height="175" style="display: none; position: absolute; right: 10%; bottom: 10%;">
+
+		<div id="level2UnlockPopup" style="display: none; position: fixed; right: 20%; bottom: 18%; transform: translate(-50%, -50%); padding: 20px; font-family: Arial, sans-serif; font-weight: bold; text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); color: white; background-color: #1e90ff; border: 1px solid black; z-index: 999; ">
+			<p>Well done, you completed the level!</p>
+			<p>You have unlocked level 2!</p>
+			<button id="nextButton" class="answer-btn" onclick="hideLevel2UnlockPopup()"><span>I want to keep playing!</span></button>
+			<button id="nextButton" class="answer-btn" onclick="level1ToLevel2()"><span>Take me to the new level!</span></button>
+		</div>
+
+        <div class="wave-preview-container">
+            <div class="wave-preview">
+				<div class="image-container" id="currentWavePreview">
+					<img src="../Assets/basicBot.png" alt="Basic Bot">
+					<div id="CurrentBot" class="hint-target" data-hint="This is the wave you are currently on, the number of bots that spawn is equal to the wave, except from every 5th wave which is a boss round!"></div>
+					<div class="hint-overlay"></div>
+				</div>
+			</div>
+
+            <div class="wave-preview" id="nextWavePreview">
+                <div class="image-container" id="currentWavePreview">
+					<img src="../Assets/basicBot.png" alt="Basic Bot">
+					<div id="NextBot" class="hint-target" data-hint="This is the next wave that will come!"></div>
+					<div class="hint-overlay"></div>
+				</div>
+            </div>
+        </div>
+    </div>
+	
+	<div id="pauseMenu" class="pause-menu">
+		<h1>Game Paused</h1>
+		<button id="resumeButton">Resume</button>
+		<button id="hintsButton">Hints</button>
+		<button id="settingsButton">Settings</button>
+		<button id="saveButton">Save Score</button>
+		<button id="quitButton">Quit</button>
+	</div>
+	
+	 <div id="settings" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); color: white;text-align: center; padding-top: 20%; z-index: 999;">
+
+        <button id="backButton" onclick="goBack()" style="position: absolute; top: 20px; left: 20px; font-size: 1rem; padding: 0.5rem 1rem; border: none; border-radius: 8px; cursor: pointer; background-color: #32cd32; color: #ffffff; transition: transform 0.1s ease; transition: transform 0.1s ease; box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.4);" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" onmousedown="this.style.transform='scale(0.95)'" onmouseup="this.style.transform='scale(1.05)'">Back</button>
+
+        <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: #ff69b4; font-weight: bold; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); animation: simpleBounce 1.5s infinite;">
+            Settings
+        </h1>
+
+        <h2 style="font-size: 1.2rem; margin-bottom: 1.5rem; color: #ffffff;">
+
+            <input type="checkbox" id="textToSpeechToggle" onclick="toggleTextToSpeech()" value="ON"/> Enable Text To Speech!
+            <br> <br>
+            <input type="checkbox" id="musicToggle" onclick="toggleMusic()" value="ON"/> No Music!
+
+        </h2>
+
+    </div>
+	
+	<div id="hintsPanel" class="hints-panel">
+		<h2>Hints</h2>
+		<p id="hintText">Welcome to the game! Follow the hints to succeed. You can see hints by clicking on any yellow panel.</p>
+	</div>
+	
+	<div id="gameInterface">
+		<button id="pauseButton" class="pause-button">Pause</button>
+	</div>
+	
+
+
+	
+    <div id="questionPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; font-family: Arial, sans-serif; font-weight: bold; text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); color: white; background-color: #1e90ff; border: 1px solid black; z-index: 998; "></div>		
+        <script src="../JS/drawPath.js"></script>
+        <script src="../JS/score.js"></script>
+        <script src="../JS/game.js"></script>
+        <script src="../JS/projectile.js"></script>
+        <script src="../JS/tower.js"></script>
+        <script src="../JS/enemy.js"></script>
+        <script src="../JS/enemyRounds.js"></script>
+        <script src="../JS/levelHP.js"></script>
+        <script src="../JS/textToSpeech.js"></script>
+        <script src="../JS/questions.js"></script>
+		<script src="../JS/pauseMenu.js"></script>
+		<script src="../JS/enemyWavePreview.js"></script>
+</body>
+</html>

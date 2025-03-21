@@ -1,0 +1,325 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #47af26;
+}
+
+#gameWrapper {
+    display: flex;
+    position: relative;
+    width: 100%;
+    max-width: 920px; /* Matches canvas width + preview */
+    margin: auto;
+    background-color: #47af26;
+}
+
+#canvasContainer {
+    position: relative;
+    width: 800px; 
+    height: 600px; 
+    border: 5px solid #165c1a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    background-image: url('../Assets/circuitBoard.png');
+    background-size: cover;
+    background-position: center;
+	flex-shrink: 0; 
+}
+
+#hud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5); 
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    z-index: 999;
+    box-sizing: border-box;
+}
+
+    #hud > div {
+        padding: 10px;
+        border: 1px solid white;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.1);
+        text-align: center;
+        flex: 1;
+    }
+
+#levelHP {
+    flex: 2;
+}
+ 
+ .pause-menu {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    color: white;
+    text-align: center;
+    padding-top: 20%;
+    z-index: 999; /* Ensure it overlays other content */
+}
+
+.pause-menu button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.pause-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ffcc00;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.pause-button:hover {
+    background-color: #ff9900;
+}
+
+.hints-panel {
+	display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    background-color: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    z-index: 996;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-right: 2px solid #ccc;
+    overflow-y: auto;
+}
+
+.hints-panel h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.hints-panel p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.hint-container {
+    position: relative;
+}
+
+.hint-overlay {
+	display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: yellow;
+    opacity: 0.6;
+    z-index: 995;
+    transition: background-color 0.3s;
+    pointer-events: auto;
+}
+
+.hint-overlay.active {
+    background-color: blue;
+}
+
+
+.hint-target {
+    position: relative;
+}
+
+.answer-btn {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.4);
+}
+    .answer-btn:hover {
+        transform: scale(1.05);
+    }
+    .answer-btn:active {
+        transform: scale(0.95);
+    }
+
+.image-container {
+    position: relative; /* Needed to position the overlay on top of the image */
+}
+
+.wave-preview-container {
+    position: relative; /* Adjust relative to #gameMenus */
+    height: 606px; /* Match the height of the canvas */
+    width: 120px; /* Fixed width for the preview */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8); /* Background for contrast */
+    color: white;
+    border: 2px solid #ccc; /* Border for separation */
+    z-index: 990;
+	margin-left: 10px;
+}
+
+.wave-preview {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    overflow: hidden; /* Ensures no inner scrollbars appear */
+    width: 80%;
+	margin-left: 0px;
+}
+
+.wave-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ensure the image maintains its aspect ratio */
+}
+
+.wave-preview h3 {
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+}
+
+.enemy-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin: 5px 0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 80%; /* Ensures consistent box size */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.enemy-box img {
+    max-width: 80px;
+    max-height: 80px;
+    margin-bottom: 5px;
+}
+
+.enemy-box span {
+    color: white;
+    font-size: 12px;
+    text-align: center;
+}
+
+.game-main {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+}
+
+.tower-hotbar {
+	position: relative; /* Adjust relative to #gameMenus */
+    height: 606px; /* Match the height of the canvas */
+    width: 120px; /* Fixed width for the preview */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: flex-start;
+    border: 2px solid #ccc;
+}
+.tower-hotbar h3 {
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+}
+
+.tower-slot {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #165c1a;
+    border-radius: 8px;
+    cursor: pointer;
+	padding: 5px;
+    margin: 5px 0;
+    position: relative;
+    transition: border-color 0.2s;
+}
+
+.tower-slot:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.tower-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 5px;
+}
+
+.tower-info {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: none;
+    white-space: nowrap;
+    z-index: 999;
+}
+
+.tower-slot:hover .tower-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tower-name {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.tower-cost {
+    color: #90EE90;
+    font-size: 10px;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.5); /* Makes the checkbox 1.5 times its original size */
+    margin-right: 10px;
+    cursor: pointer;
+}

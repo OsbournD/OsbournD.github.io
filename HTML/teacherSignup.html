@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Teacher Portal - Bots Against The Web!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #9932cc;
+            font-family: Arial, sans-serif;
+        }
+        #menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        #menu h1 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            font-weight: bold;
+            animation: simpleBounce 2s infinite;
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+        }
+        .portal-container {
+            width: 600px;
+            padding: 20px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+        }
+        .section {
+            width: 45%;
+            color: #ffffff;
+        }
+        .section input {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        .divider {
+            width: 1px;
+            background: rgba(255, 255, 255, 0.3);
+            margin: 0 10px;
+        }
+        button {
+            width: 90%;
+            font-size: 1.2rem;
+            padding: 1rem 0;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.1s ease;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.4);
+            color: #ffffff;
+        }
+        #loginButton { background-color: #32cd32; }
+        #signupButton { background-color: #ff69b4; }
+        #backButton { background-color: #f39c12; }
+        button:hover { transform: scale(1.05); }
+        button:active { transform: scale(0.95); }
+        .class-code {
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            display: none;
+        }
+        @keyframes simpleBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+    </style>
+	<script src="https://accounts.google.com/gsi/client" async defer></script>
+	<div id="g_id_onload"
+     data-client_id="412780732933-8pgiadm9nbnthpfft3ud0dg589pu4smc.apps.googleusercontent.com"
+     data-callback="handleCredentialResponse">
+	</div>
+	<meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin-allow-popups">
+	<meta http-equiv="Cross-Origin-Embedder-Policy" content="unsafe-none">
+</head>
+<body>
+    <div id="menu">
+        <h1>Teacher Portal</h1>
+        <div class="portal-container">
+            <div class="section">
+                <h2 style="font-size: 1.5rem; margin-bottom: 20px;">Login</h2>
+                <input type="text" id="username" placeholder="Username">
+                <input type="password" id="password" placeholder="Password">
+                <button onclick="teacherLogin()" id="loginButton">Login</button>
+				<div class="g_id_signin"
+				data-type="standard"
+				data-size="large"
+				data-theme="outline"
+				data-text="sign_in_with"
+				data-shape="rectangular"
+				data-logo_alignment="left">
+				</div>
+            </div>
+            <div class="divider"></div>
+            <div class="section">
+                <h2 style="font-size: 1.5rem; margin-bottom: 20px;">Create Account</h2>
+                <input type="text" id="newUsername" placeholder="Choose Username">
+                <input type="password" id="newPassword" placeholder="Choose Password">
+                <button onclick="teacherSignup()" id="signupButton">Create Account</button>
+                <div id="classCodeDisplay" class="class-code">
+                    Class Code: <span id="generatedCode"></span>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 20px;">
+            <button onclick="window.location.href='login.html'" id="backButton" style="width: 290px">Back to Main Login</button>
+        </div>
+    </div>
+    <script src = ../JS/teacherSignup.js></script>
+</body>
+</html>

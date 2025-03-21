@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Teacher Dashboard - Bots Against The Web!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #9932cc;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        .dashboard {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .class-info {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .student-list {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        th {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            background: #32cd32;
+            color: white;
+            transition: transform 0.1s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        #logoutBtn {
+            background: #ff4444;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <h1>Teacher Dashboard</h1>
+            <div>
+                <button onclick="window.location.href='login.html'" id="logoutBtn">Logout</button>
+            </div>
+        </div>
+
+        <div class="class-info">
+            <h2>Class Information</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Class Code</h3>
+                    <div class="stat-value" id="classCode">ABC123</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Students</h3>
+                    <div class="stat-value" id="totalStudents">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Average Score</h3>
+                    <div class="stat-value" id="avgScore">0</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="student-list">
+            <h2>Student Progress</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>High Score</th>
+                        <th>Levels Completed</th>
+                        <th>Time Achieved</th>
+                    </tr>
+                </thead>
+                <tbody id="studentTable">
+                    <!-- Student data will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src = ../JS/teacherDashboard.js ></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+[
+    {
+    "question": "Which of the following are good practices for creating a strong password? (Select all that apply)",
+    "options": [
+        "Use a mix of uppercase, lowercase, numbers, and symbols",
+        "Use your pet’s name or birthday",
+        "Avoid using short passwords",
+        "Reuse the same password for multiple sites",
+        "Avoid using common words and phrases"
+    ],
+    "answer": [
+        "Use a mix of uppercase, lowercase, numbers, and symbols",
+        "Avoid using short passwords",
+        "Avoid using common words and phrases"
+    ],
+    "type": "MC"
+    },
+    {
+    "question": "How can you make sure the websites you visit are safe? (Select all that apply)",
+    "options": [
+        "Look for 'https://' at the beginning of the web address",
+        "Check if the site has a padlock symbol in the address bar",
+        "Ask a parent or trusted adult before using a new website",
+        "Click on pop-ups offering free prizes to test the website",
+        "Enter your personal information to see if the website asks for too much"
+    ],
+    "answer": [
+        "Look for 'https://' at the beginning of the web address",
+        "Check if the site has a padlock symbol in the address bar",
+        "Ask a parent or trusted adult before using a new website"
+    ],
+    "type": "MC"
+    },
+    {
+    "question": "What should you do if you accidentally land on an inappropriate or unsafe website? (Select all that apply)",
+    "options": [
+        "Close the website immediately",
+        "Tell a trusted adult what happened",
+        "Use a safe search filter to help avoid bad websites in the future",
+        "Stay on the site and see what’s on it",
+        "Share the website link with friends to warn them"
+    ],
+    "answer": [
+        "Close the website immediately",
+        "Tell a trusted adult what happened",
+        "Use a safe search filter to help avoid bad websites in the future"
+    ],
+    "type": "MC"
+    },
+    {
+    "question": "What should you do if you accidentally land on an inappropriate or unsafe website? (Select all that apply)",
+    "options": [
+        "Close the website immediately",
+        "Tell a trusted adult what happened",
+        "Use a safe search filter to help avoid bad websites in the future",
+        "Stay on the site and see what’s on it",
+        "Share the website link with friends to warn them"
+    ],
+    "answer": [
+        "Close the website immediately",
+        "Tell a trusted adult what happened",
+        "Use a safe search filter to help avoid bad websites in the future"
+    ],
+    "type": "MC"
+    },
+    {
+    "question": "Which of the following are safe practices when sharing information online? (Select all answers):",
+    "options": [
+        "Only share information from trusted and verified sources",
+        "Double-check the information before sharing, even if it’s from a friend",
+        "Share personal information like your address or passwords with people you trust",
+        "Think about how the information might affect others before sharing",
+        "Post anything you see online if it seems interesting or funny"
+    ],
+    "answer": [
+        "Only share information from trusted and verified sources",
+        "Double-check the information before sharing, even if it’s from a friend",
+        "Think about how the information might affect others before sharing"
+    ],
+    "type": "MC"
+    },
+    {
+    "question": "What are good ways to stay safe when using a search engine? (Select all that apply)",
+    "options": [
+        "Use kid-friendly search engines like Swiggle or Google SafeSearch",
+        "Check the source of the website before trusting what it says",
+        "Avoid clicking on sponsored ads at the top of the search results",
+        "Click on the first link that comes up, no matter what",
+        "Type in anything and see what comes up"
+    ],
+    "answer": [
+        "Use kid-friendly search engines like Swiggle or Google SafeSearch",
+        "Check the source of the website before trusting what it says",
+        "Avoid clicking on sponsored ads at the top of the search results"
+    ],
+    "type": "MC"
+    }
+]
+

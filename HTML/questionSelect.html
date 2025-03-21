@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Set Selector - Bots Against The Web!</title>
+    <style>
+        @keyframes simpleBounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e90ff, #00bfff);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        .container {
+            text-align: center;
+            width: 90%;
+            max-width: 800px;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #ff69b4;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+            animation: simpleBounce 1.5s infinite;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        }
+        
+        .flex-container {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .difficulty-section {
+            flex: 1;
+            padding: 20px;
+            border-right: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .selector-section {
+            flex: 1;
+            padding: 20px;
+        }
+        
+        .difficulty-button {
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            margin: 0.8rem 0;
+            width: 80%;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            color: #ffffff;
+            transition: transform 0.1s ease;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.4);
+            display: block;
+        }
+        
+        .difficulty-button:hover {
+            transform: scale(1.05);
+        }
+        
+        .difficulty-button:active {
+            transform: scale(0.95);
+        }
+        
+        .easy {
+            background-color: #32cd32;
+        }
+        
+        .medium {
+            background-color: #ff8c00;
+        }
+        
+        .hard {
+            background-color: #ff4500;
+        }
+        
+        .selected {
+            box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.5);
+            transform: scale(1.05);
+        }
+        
+        select {
+            width: 80%;
+            padding: 0.8rem;
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 8px;
+            margin: 1rem 0;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.4);
+        }
+        
+        .button {
+            font-size: 1.2rem; 
+            padding: 1rem 2rem; 
+            margin: 1rem 0; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            background-color: #ff69b4; 
+            color: #ffffff; 
+            transition: transform 0.1s ease; 
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.4);
+        }
+        
+        .button:hover {
+            transform: scale(1.05);
+        }
+        
+        .button:active {
+            transform: scale(0.95);
+        }
+        
+        #backButton {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #32cd32;
+            color: #ffffff;
+            transition: transform 0.1s ease;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        #selectLevelButton {
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #ff69b4;
+            color: #ffffff;
+            transition: transform 0.1s ease;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.4);
+            display: inline-block;
+        }
+        
+        .status {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: 90%;
+            max-width: 600px;
+            padding: 0.8rem;
+            border-radius: 8px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            z-index: 100;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="backButton">Back</button>
+        
+        <h1>Question Type!</h1>
+        
+        <div class="flex-container">
+            <!-- Left side: Difficulty buttons (JSON file shortcuts) -->
+            <div class="difficulty-section">
+                <h2>Quick Select</h2>
+                <button id="easyButton" class="difficulty-button easy" data-file="Questions.json">Mixed Questions</button>
+                <button id="mediumButton" class="difficulty-button medium" data-file="PureMA.json">Multiple Answer Questions</button>
+            </div>
+            
+            <!-- Right side: JSON file selector (complete list) -->
+            <div class="selector-section">
+                <h2>All Question Sets</h2>
+                <select id="jsonSelector">
+                    <option value="Questions.json">Questions.json (Default)</option>
+                    <!-- More options will be added dynamically -->
+                </select>
+                <button id="saveButton" class="button">Save Selection</button>
+            </div>
+        </div>
+        
+        <button id="selectLevelButton" class="button" style="margin-top: 20px;">Play!</button>
+        
+        <div id="status" class="status">Currently using: Questions.json (Default)</div>
+    </div>
+
+    <script>
+
+        const menuMusic = new Audio("../GameMusic/685206__x1shi__video-game-music-seamless.mp3");
+
+        window.onload = function() {
+
+            var isMusicDisabled = localStorage.getItem('musicDisabled') === 'false';
+
+            if (isMusicDisabled) {
+                menuMusic.currentTime = 16.6;
+                menuMusic.play();
+                menuMusic.volume = 0.1;
+            }
+        }
+        // Back button functionality
+        document.getElementById('backButton').addEventListener('click', function() {
+            window.location.href  ='Menu.html';
+        });
+        
+        // Select Level button functionality
+        document.getElementById('selectLevelButton').addEventListener('click', function() {
+            window.location.href = 'levelSelect.html'; // Navigate to level select page
+        });
+        
+        // Status element reference
+        const status = document.getElementById('status');
+        const selector = document.getElementById('jsonSelector');
+        
+        // Function to update status message based on current selection
+        function updateStatusMessage(filename) {
+            status.textContent = `Currently using: ${filename}`;
+        }
+        
+        // Function to save the selected file
+        function saveSelectedFile(filename) {
+            localStorage.setItem('selectedQuestionFile', filename);
+            
+            // Update dropdown to match selection
+            if (selector.value !== filename) {
+                // Look for the option with this value
+                let found = false;
+                for (let i = 0; i < selector.options.length; i++) {
+                    if (selector.options[i].value === filename) {
+                        selector.selectedIndex = i;
+                        found = true;
+                        break;
+                    }
+                }
+                
+                // If not found in dropdown, add it
+                if (!found) {
+                    const option = document.createElement('option');
+                    option.value = filename;
+                    option.textContent = filename;
+                    selector.appendChild(option);
+                    selector.value = filename;
+                }
+            }
+            
+            // Update status message
+            updateStatusMessage(filename);
+            
+            // Flash status to indicate saving
+            status.style.backgroundColor = "rgba(50, 205, 50, 0.7)";  // Green background
+            
+            setTimeout(() => {
+                status.style.backgroundColor = "rgba(0, 0, 0, 0.7)";  // Back to original
+            }, 1000);
+            
+            // Update visual selection of difficulty buttons
+            updateDifficultyButtonSelection(filename);
+        }
+        
+        // Function to update which difficulty button appears selected
+        function updateDifficultyButtonSelection(filename) {
+            const difficultyButtons = document.querySelectorAll('.difficulty-button');
+            
+            // Remove selected class from all buttons
+            difficultyButtons.forEach(btn => btn.classList.remove('selected'));
+            
+            // Add selected class to matching button if any
+            difficultyButtons.forEach(btn => {
+                if (btn.dataset.file === filename) {
+                    btn.classList.add('selected');
+                }
+            });
+        }
+        
+        // Difficulty button click handling (shortcut for specific files)
+        const difficultyButtons = document.querySelectorAll('.difficulty-button');
+        
+        difficultyButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const filename = this.dataset.file;
+                saveSelectedFile(filename);
+            });
+        });
+        
+        // Function to fetch available JSON files
+        async function fetchAvailableJsonFiles() {
+            try {
+                const response = await fetch('../PHP/questionJSON.php');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch JSON file list');
+                }
+                const files = await response.json();
+                
+                // Clear existing options except the default
+                while (selector.options.length > 1) {
+                    selector.remove(1);
+                }
+                
+                // Add options for each file
+                files.forEach(file => {
+                    const option = document.createElement('option');
+                    option.value = file;
+                    option.textContent = file;
+                    selector.appendChild(option);
+                });
+                
+                // Get the saved file selection
+                const savedFile = localStorage.getItem('selectedQuestionFile') || 'Questions.json';
+                
+                // Update the selector to show the saved file
+                let fileExists = false;
+                for (let i = 0; i < selector.options.length; i++) {
+                    if (selector.options[i].value === savedFile) {
+                        selector.selectedIndex = i;
+                        fileExists = true;
+                        break;
+                    }
+                }
+                
+                // If saved file doesn't exist in options, add it
+                if (!fileExists) {
+                    const option = document.createElement('option');
+                    option.value = savedFile;
+                    option.textContent = savedFile;
+                    selector.appendChild(option);
+                    selector.value = savedFile;
+                }
+                
+                // Update the status message and button selection
+                updateStatusMessage(savedFile);
+                updateDifficultyButtonSelection(savedFile);
+                
+            } catch (error) {
+                console.error('Error fetching JSON files:', error);
+                status.textContent = "Couldn't load question sets. Using default only.";
+                status.style.backgroundColor = "rgba(255, 69, 0, 0.7)";  // Red background for error
+                
+                setTimeout(() => {
+                    status.style.backgroundColor = "rgba(0, 0, 0, 0.7)";  // Back to original
+                    updateStatusMessage(localStorage.getItem('selectedQuestionFile') || 'Questions.json');
+                }, 1500);
+            }
+        }
+
+        // Save button click handler
+        document.getElementById('saveButton').addEventListener('click', function() {
+            const selectedFile = selector.value;
+            saveSelectedFile(selectedFile);
+        });
+        
+        // Add hover and active effects to buttons
+        const buttons = [
+            document.getElementById('backButton'),
+            document.getElementById('selectLevelButton'),
+            document.getElementById('saveButton')
+        ];
+        
+        buttons.forEach(button => {
+            button.addEventListener('mouseover', function() {
+                this.style.transform = 'scale(1.05)';
+            });
+            
+            button.addEventListener('mouseout', function() {
+                this.style.transform = 'scale(1)';
+            });
+            
+            button.addEventListener('mousedown', function() {
+                this.style.transform = 'scale(0.95)';
+            });
+            
+            button.addEventListener('mouseup', function() {
+                this.style.transform = 'scale(1.05)';
+            });
+        });
+        
+        // Load available files and previous settings when page loads
+        window.addEventListener('DOMContentLoaded', fetchAvailableJsonFiles);
+    </script>
+</body>
+</html>

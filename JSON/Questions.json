@@ -1,0 +1,231 @@
+[
+    {
+      "question": "You've received a friend request from someone you don't know. do you accept them?",
+      "options": [
+        "No, you decline the request and block them. If it's made you feel uncomfortable or worried you tell a parent/guardian/teacher",
+        "Yes, and then send them a message asking who they are",
+        "You ask your friends to find out if anyone knows who the person is and only accept if someone else knows them"
+      ],
+      "answer": [
+        "No, you decline the request and block them. If it's made you feel uncomfortable or worried you tell a parent/guardian/teacher"
+      ],
+      "type": "SA"
+    },
+    {
+      "question": "You want to post a video to TikTok, but you were wearing your school uniform in the video. Does it matter?",
+      "options": [
+        "No it doesn't matter, everyone knows which school you go to anyway",
+        "It would be better without the uniform but you can't be bothered to refilm it",
+        "Yes, it matters because your uniform has the school name on it, which is personal info and it can give away your location"
+      ],
+      "answer": [
+        "Yes, it matters because your uniform has the school name on it, which is personal info and it can give away your location"
+      ],
+      "type": "SA"
+    },
+    {
+      "question": "Which of these will always show you pictures of cars?",
+      "options": [
+        "Cars",
+        "\"Cars\"",
+        "asdCars"
+      ],
+      "answer": [
+        "\"Cars\""
+      ],
+      "type": "SA"
+    },
+    {
+      "question": "Your friend always 'checks in' to whatever location you are at, tagging you in the post too. Should you ask her to stop tagging you?",
+      "options": [
+        "Yes, ask your friend not to check in because you don't want to share your location",
+        "No, just have a competition to see who can tag who quickest next time!",
+        "You'd like to, but you know they will say you are being silly by not wanting them to tag you"
+      ],
+      "answer": [
+        "Yes, ask your friend not to check in because you don't want to share your location"
+      ],
+      "type": "SA"
+    },
+    {
+      "question": "You get an email from the app you use all the time asking for your password to fix a problem with your account. What do you do?",
+      "options": [
+        "Reply straight away with your password – you don't want to risk losing access",
+        "Don’t click on any links, but go to the app itself and check for any genuine messages",
+        "Reply asking for confirmation that the email is genuine and not a scam before sending your password"
+      ],
+      "answer": [
+        "Don’t click on any links, but go to the app itself and check for any genuine messages"
+      ],
+      "type": "SA"
+    },
+    {
+      "question": "In a game chat someone you don't know sends you a link. What do you do?",
+      "options": [
+        "Don't click on any links. You can report the message or just delete straight away",
+        "The name looks familiar, so you click the link to see if it is anything interesting",
+        "Forward it to your friend to see what they think"
+      ],
+      "answer": [
+        "Don't click on any links. You can report the message or just delete straight away"
+      ],
+      "type": "SA"
+    },
+    {
+      "question": "Someone you know has sent you a message saying horrible things about another person. What should you do?",
+      "options": [
+        "Agree with them, you don’t really like the other person anyway",
+        "Don't reply to the message, but take a screenshot and show it to an adult you trust",
+        "Ignore it and delete the message, you don't want to get involved"
+      ],
+      "answer": [
+        "Don't reply to the message, but take a screenshot and show it to an adult you trust"
+      ],
+      "type": "SA"
+    },
+    {
+      "question": "You find out someone has shared an embarrassing photo of you, what should you do?",
+      "options": [
+        "Just ignore it and hope that it'll be a photo of someone else they find funny tomorrow",
+        "Message them and call them names to get back at them",
+        "You know it’ll be embarrassing, but it is best to tell an adult you trust (a parent, or teacher) what has happened so they can help"
+      ],
+      "answer": [
+        "You know it’ll be embarrassing, but it is best to tell an adult you trust (a parent, or teacher) what has happened so they can help"
+      ],
+      "type": "SA"
+    },
+    {
+      "question": "You’ve been chatting to another player on an online game for a few weeks and they’ve suggested meeting up at the weekend. What do you say?",
+      "options": [
+        "This feels a bit weird, so tell an adult you trust (or a Childline counsellor)",
+        "Say yes as long as you can meet in a busy place",
+        "Take your best mate along with you, you’ll be fine if there are two of you"
+      ],
+      "answer": [
+        "This feels a bit weird, so tell an adult you trust (or a Childline counsellor)"
+      ],
+      "type": "SA"
+    },
+    {
+      "question": "How do you find out if a new game you want to play is suitable for your age?",
+      "options": [
+        "Look it up on the app store or game developer site and see what age rating it has",
+        "Ask your mates if they are playing it. If they are you can get it too",
+        "You just play the games you like, so don’t bother checking what the age rating is"
+      ],
+      "answer": [
+        "Look it up on the app store or game developer site and see what age rating it has"
+      ],
+      "type": "SA"
+    },
+    {
+      "question": "You are struggling to pass a level on a game. A friend says that they can pass the level for you if you give them your password to log in. Should you do this?",
+      "options": [
+        "If it gets you to the next level you’d try anything!",
+        "Say yes, but make them promise to forget your password straight away",
+        "Say thanks but no thanks because you don’t share passwords (or other personal info). But ask for some tips about the game instead"
+      ],
+      "answer": [
+        "Say thanks but no thanks because you don’t share passwords (or other personal info). But ask for some tips about the game instead"
+      ],
+      "type": "SA"
+    },
+    {
+      "question": "Which of the following are good practices for creating a strong password? (Select all that apply)",
+      "options": [
+        "Use a mix of uppercase, lowercase, numbers, and symbols",
+        "Use your pet’s name or birthday",
+        "Avoid using short passwords",
+        "Reuse the same password for multiple sites",
+        "Avoid using common words and phrases"
+      ],
+      "answer": [
+        "Use a mix of uppercase, lowercase, numbers, and symbols",
+        "Avoid using short passwords",
+        "Avoid using common words and phrases"
+      ],
+      "type": "MC"
+    },
+    {
+      "question": "How can you make sure the websites you visit are safe? (Select all that apply)",
+      "options": [
+        "Look for 'https://' at the beginning of the web address",
+        "Check if the site has a padlock symbol in the address bar",
+        "Ask a parent or trusted adult before using a new website",
+        "Click on pop-ups offering free prizes to test the website",
+        "Enter your personal information to see if the website asks for too much"
+      ],
+      "answer": [
+        "Look for 'https://' at the beginning of the web address",
+        "Check if the site has a padlock symbol in the address bar",
+        "Ask a parent or trusted adult before using a new website"
+      ],
+      "type": "MC"
+    },
+    {
+      "question": "What should you do if you accidentally land on an inappropriate or unsafe website? (Select all that apply)",
+      "options": [
+        "Close the website immediately",
+        "Tell a trusted adult what happened",
+        "Use a safe search filter to help avoid bad websites in the future",
+        "Stay on the site and see what’s on it",
+        "Share the website link with friends to warn them"
+      ],
+      "answer": [
+        "Close the website immediately",
+        "Tell a trusted adult what happened",
+        "Use a safe search filter to help avoid bad websites in the future"
+      ],
+      "type": "MC"
+    },
+    {
+      "question": "What should you do if you accidentally land on an inappropriate or unsafe website? (Select all that apply)",
+      "options": [
+        "Close the website immediately",
+        "Tell a trusted adult what happened",
+        "Use a safe search filter to help avoid bad websites in the future",
+        "Stay on the site and see what’s on it",
+        "Share the website link with friends to warn them"
+      ],
+      "answer": [
+        "Close the website immediately",
+        "Tell a trusted adult what happened",
+        "Use a safe search filter to help avoid bad websites in the future"
+      ],
+      "type": "MC"
+    },
+    {
+      "question": "Which of the following are safe practices when sharing information online? (Select all answers):",
+      "options": [
+        "Only share information from trusted and verified sources",
+        "Double-check the information before sharing, even if it’s from a friend",
+        "Share personal information like your address or passwords with people you trust",
+        "Think about how the information might affect others before sharing",
+        "Post anything you see online if it seems interesting or funny"
+      ],
+      "answer": [
+        "Only share information from trusted and verified sources",
+        "Double-check the information before sharing, even if it’s from a friend",
+        "Think about how the information might affect others before sharing"
+      ],
+      "type": "MC"
+    },
+    {
+      "question": "What are good ways to stay safe when using a search engine? (Select all that apply)",
+      "options": [
+        "Use kid-friendly search engines like Swiggle or Google SafeSearch",
+        "Check the source of the website before trusting what it says",
+        "Avoid clicking on sponsored ads at the top of the search results",
+        "Click on the first link that comes up, no matter what",
+        "Type in anything and see what comes up"
+      ],
+      "answer": [
+        "Use kid-friendly search engines like Swiggle or Google SafeSearch",
+        "Check the source of the website before trusting what it says",
+        "Avoid clicking on sponsored ads at the top of the search results"
+      ],
+      "type": "MC"
+    }
+]
+  

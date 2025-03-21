@@ -1,0 +1,132 @@
+﻿﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Intro Level - Bots Against The Web!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../CSS/introLevel.css">
+
+</head>
+
+<body>
+	<div id="gameWrapper">
+		<div id="towerHotbar" class="tower-hotbar">
+			<h3>Towers</h3>
+			<div class="tower-slot" data-tower-type="basic" data-tower-cost="1">
+				<img src="../Assets/basicTower.png" alt="Basic Tower" class="tower-icon">
+				<div class="tower-info">
+					<span class="tower-name">Basic Tower</span>
+					<span class="tower-cost">1 Point</span>
+				</div>
+			</div>
+		</div>
+		<div id="gameMain">
+			<div id="canvasContainer">
+				<div id="hud">
+
+					<div id="levelHP"></div>
+
+					<div id="towerPoints"></div>
+
+					<div id="currentScore"></div>
+
+					<div id="highScore"></div>
+
+					<div id="WaveCounter"></div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+    <img src="../Assets/AgentSwiggle.png" id="AgentSwiggle" alt="secret agent swigglebot" width="300" height="250" style="display: none; position: absolute; right: 12%; bottom: 10%;">
+
+    <div id="introStartPopup" style="display: none; position: fixed; right: 20%; bottom: 18%; transform: translate(-50%, -50%); padding: 20px; font-family: Arial, sans-serif; font-weight: bold; text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); color: white; background-color: #1e90ff; border: 1px solid black; z-index: 999; ">
+        <p>Hi, my name is Secret Agent Swiggle, welcome to 'Bots Against The Web!</p>
+        <p>I'm here to teach you how to play the game!</p>
+        <button id="nextButton" class="answer-btn" onclick="hideIntroStartPopup()"><span>Gotcha!</span></button>
+    </div>
+
+    <div id="introStartSecondPopup" style="display: none; position: fixed; right: 20%; bottom: 18%; transform: translate(-50%, -50%); padding: 20px; font-family: Arial, sans-serif; font-weight: bold; text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); color: white; background-color: #1e90ff; border: 1px solid black; z-index: 999; ">
+        <p>You have been recruited by the 'Top Secret Internet Agency'</p>
+        <p>to try and help us stop the bots from taking over the internet!</p>
+        <p>I will guide you through your first mission.</p>
+        <button id="nextButton" class="answer-btn" onclick="hideIntroStartSecondPopup()"><span>Awesome, when do I start?</span></button>
+    </div>
+
+    <div id="introFirstPopup" style="display: none; position: fixed; right: 20%; bottom: 18%; transform: translate(-50%, -50%); padding: 20px; font-family: Arial, sans-serif; font-weight: bold; text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); color: white; background-color: #1e90ff; border: 1px solid black; z-index: 999; ">
+        <p>Watch out! Here comes one of those pesky bots!</p> <p>If the bot makes it to the end of the path, the internet will take some damage!</p>
+        <button id="nextButton" class="answer-btn" onclick="hideIntroFirstPopup()"><span>Oh no!</span></button>
+    </div>
+
+    <div id="introSecondPopup" style="display: none; position: fixed; right: 20%; bottom: 18%; transform: translate(-50%, -50%); padding: 20px; font-family: Arial, sans-serif; font-weight: bold; text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); color: white; background-color: #1e90ff; border: 1px solid black; z-index: 999; ">
+        <p>Oh no!</p> <p>The pesky bot just made it to the end!</p>
+        <button id="nextButton" class="answer-btn" onclick="hideIntroSecondPopup()"><span>Aww maaan</span></button>
+    </div>
+
+    <div id="introThirdPopup" style="display: none; position: fixed; right: 20%; bottom: 18%; transform: translate(-50%, -50%); padding: 20px; font-family: Arial, sans-serif; font-weight: bold; text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); color: white; background-color: #1e90ff; border: 1px solid black; z-index: 999; ">
+        <p>Okay lets try that again!</p> <p>Click on the screen next to the path to place down some defences!</p>
+        <button id="nextButton" class="answer-btn" onclick="hideIntroThirdPopup()"><span>Okay!</span></button>
+    </div>
+
+    <div id="introFourthPopup" style="display: none; position: fixed; right: 20%; bottom: 18%; transform: translate(-50%, -50%); padding: 20px; font-family: Arial, sans-serif; font-weight: bold; text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); color: white; background-color: #1e90ff; border: 1px solid black; z-index: 999; ">
+        <p>Well done!</p> <p>Now its time to earn some more tower points to place more towers!</p> <p>Click the correct answer and win more points!</p>
+        <button id="nextButton" class="answer-btn" onclick="hideIntroFourthPopup()"><span>I'm ready!</span></button>
+    </div>
+
+    <div id="introQuestionPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; font-family: Arial, sans-serif; font-weight: bold; text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); color: white; background-color: #d54fdf; border: 1px solid black; z-index: 1000; ">
+        <p>Are the bots trying to take over the internet?</p>
+        <button id="answer1" class="answer-btn" onclick="incorrectIntroAnswer()">No, they are trying to help!</button>
+        <button id="answer2" class="answer-btn" onclick="correctIntroAnswer()">Yes, we have to try and stop them!</button>
+        <button id="answer3" class="answer-btn" onclick="incorrectIntroAnswer()">Hmm, I don't remember.</button>
+    </div>
+
+    <div id="introQuestionCorrectPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; font-family: Arial, sans-serif; font-weight: bold; text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); color: white; background-color: #d54fdf; border: 1px solid black; z-index: 1000; ">
+        <p>Well done! You answered your first question correctly.</p> <p>You can now place down more towers!</p>
+        <button id="nextButton" class="answer-btn" onclick="hideIntroQuestionCorrectPopup()"><span>Yippee!!</span></button>
+    </div>
+
+    <div id="introQuestionIncorrectPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; font-family: Arial, sans-serif; font-weight: bold; text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); color: white; background-color: #d54fdf; border: 1px solid black; z-index: 1000; ">
+        <p>Better luck next time!</p> <p>The bots are trying to take over the internet and we have to stop them!</p>
+        <button id="nextButton" class="answer-btn" onclick="hideIntroQuestionIncorrectPopup()"><span>Okay!</span></button>
+    </div>
+
+
+    <div id="introQuestionSecondPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; font-family: Arial, sans-serif; font-weight: bold; text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); color: white; background-color: #d54fdf; border: 1px solid black; z-index: 1000; ">
+        <p>Do you want to help us save the internet?</p>
+        <button id="answer1" class="answer-btn" onclick="correctIntroSecondAnswer()">Yes I do!</button>
+        <button id="answer2" class="answer-btn" onclick="incorrectIntroSecondAnswer()">No, I don't</button>
+    </div>
+
+    <div id="introQuestionCorrectSecondPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; font-family: Arial, sans-serif; font-weight: bold; text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); color: white; background-color: #d54fdf; border: 1px solid black; z-index: 1000; ">
+        <p>Thats the spirit! One last round!</p>
+        <button id="nextButton" class="answer-btn" onclick="hideIntroQuestionCorrectSecondPopup()"><span>Yippee!!</span></button>
+    </div>
+
+    <div id="introQuestionIncorrectSecondPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; font-family: Arial, sans-serif; font-weight: bold; text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); color: white; background-color: #d54fdf; border: 1px solid black; z-index: 1000; ">
+        <p>Come on! You can do it!</p>
+        <button id="nextButton" class="answer-btn" onclick="hideIntroQuestionIncorrectSecondPopup()"><span>Okay!</span></button>
+    </div>
+
+    <div id="introEndPopup" style="display: none; position: fixed; right: 20%; bottom: 18%; transform: translate(-50%, -50%); padding: 20px; font-family: Arial, sans-serif; font-weight: bold; text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); color: white; background-color: #1e90ff; border: 1px solid black; z-index: 999; ">
+        <p>You have successfully completed the introduction</p> <p>and you are ready to tackle your first level on your own!</p>
+        <button id="nextButton" class="answer-btn" onclick="introLevelToLevelSelect()"><span>Let's go!</span></button>
+    </div>
+
+    <div id="questionPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; font-family: Arial, sans-serif; font-weight: bold; text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); color: white; background-color: #d54fdf; border: 1px solid black; z-index: 1000; "></div>
+
+    <div id="gameInterface">
+		<button id="backButton" class="back-button" onclick="introLevelToLevelSelect()" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" onmousedown="this.style.transform='scale(0.95)'" onmouseup="this.style.transform='scale(1.05)'">Back to the menu!</button>
+	</div>
+
+    <script src="../JS/drawPath.js"></script>
+    <script src="../JS/game.js"></script>
+    <script src="../JS/projectile.js"></script>
+    <script src="../JS/tower.js"></script>
+    <script src="../JS/enemy.js"></script>
+    <script src="../JS/enemyRounds.js"></script>
+    <script src="../JS/levelHP.js"></script>
+    <script src="../JS/score.js"></script>
+    <script src="../JS/introLevel.js"></script>
+    <script src="../JS/textToSpeech.js"></script>
+</body>
+</html>
