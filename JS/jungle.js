@@ -24,10 +24,10 @@ let mediumRounds = 3;
 let hardRounds = 5;
 let currentRound = 0;
 let maxRounds = 0;
-let correctSound = new Audio('assets/data/audio/correct.mp3');
-let incorrectSound = new Audio('assets/data/audio/wrong.wav');
-let winSound = new Audio('assets/data/audio/win.mp3');
-let clickSound = new Audio('assets/data/audio/click.mp3');
+let correctSound = new Audio('Assets/data/audio/correct.mp3');
+let incorrectSound = new Audio('Assets/data/audio/wrong.wav');
+let winSound = new Audio('Assets/data/audio/win.mp3');
+let clickSound = new Audio('Assets/data/audio/click.mp3');
 let finalSoundPlayed = false;
 
 
@@ -35,7 +35,7 @@ let dataReady = false;
 
 export function loadJungleData() {
   loadJSON(
-    'assets/data/questionsJungle.json',
+    'Assets/data/questionsJungle.json',
     (loadedQuestions) => {
       // clear existing array
       answers = [];
@@ -628,8 +628,8 @@ function advanceToNextQuestion() {
 
 function preloadJungleImages() { // load in jungle images - Oliver
   console.log("Preloading jungle images...");
-  jungleMainBg = loadImage("assets/data/jungle/jungleBg.svg");
-  monkey = loadImage("assets/data/jungle/monkey.svg");
+  jungleMainBg = loadImage("Assets/data/jungle/jungleBg.svg");
+  monkey = loadImage("Assets/data/jungle/monkey.svg");
 }
 
 function shuffleArray(array) { // shuffle questions - Oliver

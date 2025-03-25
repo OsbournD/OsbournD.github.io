@@ -71,7 +71,7 @@ const dropZoneHeight = 200
 
 export function loadDetectiveData(callback) {
     loadJSON(
-        'assets/data/questionsDetective.json',
+        'Assets/data/questionsDetective.json',
         (loadedReports) => {
 
             console.log("Loaded JSON:", loadedReports);
@@ -811,9 +811,9 @@ export function resetDetectiveGame(){
 
 function preloadDetectiveImages() { //load in images - Oliver
     console.log("Preloading detective images...");
-    detectiveMainBg = loadImage("assets/data/detective/detectiveBg.png", () => redraw());
-    detectiveMainFg = loadImage("assets/data/detective/detectiveFg.png", () => redraw());
-    dog = loadImage("assets/data/detective/dog.png", () => redraw());
+    detectiveMainBg = loadImage("Assets/data/detective/detectiveBg.png", () => redraw());
+    detectiveMainFg = loadImage("Assets/data/detective/detectiveFg.png", () => redraw());
+    dog = loadImage("Assets/data/detective/dog.png", () => redraw());
 }
 
 // Ensure p5.js event handlers are correctly exposed

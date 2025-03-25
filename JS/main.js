@@ -56,29 +56,29 @@ let cursorHand, cursorArrow;
 let mainAudio, jungleAudio, detectiveAudio, castleAudio, roomAudio;
 let audioSymbol, noAudio, music;
 //button noise
-const clickSound = new Audio('assets/data/audio/click.mp3');
-const hoverSound = new Audio("assets/data/audio/pop.mp3");
-const swiggleNoise = new Audio("assets/data/audio/swiggleBot.wav");
+const clickSound = new Audio('Assets/data/audio/click.mp3');
+const hoverSound = new Audio("Assets/data/audio/pop.mp3");
+const swiggleNoise = new Audio("Assets/data/audio/swiggleBot.wav");
 
 function preload() {
   //all music
-  mainAudio = loadSound("assets/data/audio/background_music1.wav");
-  jungleAudio = loadSound("assets/data/audio/jungleBgMusic.wav");
-  detectiveAudio = loadSound("assets/data/audio/detectiveBgMusic.wav");
-  castleAudio = loadSound("assets/data/audio/castleBgMusic.wav");
-  roomAudio = loadSound("assets/data/audio/roomBgMusic.wav");
+  mainAudio = loadSound("Assets/data/audio/background_music1.wav");
+  jungleAudio = loadSound("Assets/data/audio/jungleBgMusic.wav");
+  detectiveAudio = loadSound("Assets/data/audio/detectiveBgMusic.wav");
+  castleAudio = loadSound("Assets/data/audio/castleBgMusic.wav");
+  roomAudio = loadSound("Assets/data/audio/roomBgMusic.wav");
 
   //set background music
   music = mainAudio;
   music.setVolume(0.3);
 
   //custom cursors -- not currently working
-  cursorHand = loadImage("assets/data/cursors/hand-1.png", () => {
+  cursorHand = loadImage("Assets/data/cursors/hand-1.png", () => {
     console.log("Hand cursor loaded!");
   }, (error) => {
     console.error("Error loading hand cursor", error);
   });
-  cursorArrow = loadImage("assets/data/cursors/arrow-1.png", () => {
+  cursorArrow = loadImage("Assets/data/cursors/arrow-1.png", () => {
     console.log("Arrow cursor loaded!");
   }, (error) => {
     console.error("Error loading arrow cursor", error);
@@ -88,19 +88,19 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   setTimeout(() => {
-    cursor('assets/data/cursors/arrow-1.png', 0, 0);
+    cursor('Assets/data/cursors/arrow-1.png', 0, 0);
   }, 500);
 
   //load background
-  mainBg = loadImage("assets/data/mainBg.svg", () => {
+  mainBg = loadImage("Assets/data/mainBg.svg", () => {
     console.log("Background loaded successfully!");
   });
-  clouds = loadImage("assets/data/clouds.svg", () => {
+  clouds = loadImage("Assets/data/clouds.svg", () => {
     console.log("Clouds loaded successfully!");
   });
 
   //load swiggle bot
-  swiggleBot = createImg("assets/data/swigglebot.svg");
+  swiggleBot = createImg("Assets/data/swigglebot.svg");
   swiggleBot.size(300, 250); // Set the size
   swiggleBot.position(200, height / 2 - 100);
 
@@ -111,8 +111,8 @@ function setup() {
   speechBubble.hide(); // Hide initially
 
   //audio button
-  audioSymbol = createImg("assets/data/audioSymbol.png", "Audio On");
-  noAudio = createImg("assets/data/noAudio.png", "Audio Off");
+  audioSymbol = createImg("Assets/data/audioSymbol.png", "Audio On");
+  noAudio = createImg("Assets/data/noAudio.png", "Audio Off");
 
   //size and position
   audioSymbol.size(100, 75);
@@ -457,13 +457,13 @@ function clickEffects(){
 
 function setCursorToHand() {
   setTimeout(() => {
-    cursor('assets/data/cursors/hand-1.png', 0, 0);
+    cursor('Assets/data/cursors/hand-1.png', 0, 0);
   }, 500);
 }
 
 function setCursorToArrow() {
   setTimeout(() => {
-    cursor('assets/data/cursors/arrow-1.png', 0, 0);
+    cursor('Assets/data/cursors/arrow-1.png', 0, 0);
   }, 500);
 }
 
@@ -501,5 +501,5 @@ window.mousePressed = mousePressed;
 window.mouseReleased = mouseReleased;
 window.mouseDragged = detectiveMouseDragged;
 window.onload = () => {
-  document.body.style.cursor = 'url("assets/data/cursors/arrow-1.png"), auto';
+  document.body.style.cursor = 'url("Assets/data/cursors/arrow-1.png"), auto';
 };

@@ -15,7 +15,7 @@ let pickerLabels = [];
 export function loadCharacterCustomisation() {
   loadSVG();
   createPickers();
-  bg = loadImage("assets/data/room.svg");
+  bg = loadImage("Assets/data/room.svg");
 }
 
 // Prints a message if function isn’t ready
@@ -144,7 +144,7 @@ function updateCharacterColours() {
 
 // Load the SVG file
 function loadSVG() {
-  fetch("assets/data/swiggleKid.svg")
+  fetch("Assets/data/swiggleKid.svg")
     .then(response => response.text())
     .then(svgText => {
       let parser = new DOMParser();

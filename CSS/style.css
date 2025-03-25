@@ -43,7 +43,7 @@ button {
 
 button:hover {
   background-color: #ddd;
-  cursor: url("../assets/data/cursors/hand-1.png") 0 0, auto;
+  cursor: url("../Assets/data/cursors/hand-1.png") 0 0, auto;
 }
 
 h1 {
@@ -65,7 +65,7 @@ h1 {
   border: none;
   border-radius: 5px;
   font-family: 'Poppins', sans-serif;
-  cursor: url("../assets/data/cursors/hand-1.png"), auto;
+  cursor: url("../Assets/data/cursors/hand-1.png"), auto;
 }
 
 .menu-button:hover {

@@ -69,11 +69,11 @@ const correctMessages = [
     "Your kingdom is proud of your wisdom!"
 ];
 // Sound effects
-let correctSound = new Audio('assets/data/audio/correct.mp3');
-let incorrectSound = new Audio('assets/data/audio/wrong.wav');
-let winSound = new Audio('assets/data/audio/win.mp3');
-let loseSound = new Audio('assets/data/audio/lose.wav');
-let clickSound = new Audio('assets/data/audio/click.mp3');
+let correctSound = new Audio('Assets/data/audio/correct.mp3');
+let incorrectSound = new Audio('Assets/data/audio/wrong.wav');
+let winSound = new Audio('Assets/data/audio/win.mp3');
+let loseSound = new Audio('Assets/data/audio/lose.wav');
+let clickSound = new Audio('Assets/data/audio/click.mp3');
 let finalSoundPlayed = false;
 
 
@@ -482,7 +482,7 @@ function addInvader() {
 
 // Load and shuffle questions
 export function loadCastleData() {
-    loadJSON("assets/data/questionsCastle.json", (data) => {
+    loadJSON("Assets/data/questionsCastle.json", (data) => {
         if (!data || data.length === 0) {
             console.error("Failed to load questionsCastle.json");
             return;
@@ -651,11 +651,11 @@ function nextQuestion() {
 
 function preloadCastleImages() {
     console.log("Preloading castle images...");
-    castleMainBg = loadImage("assets/data/castle/castleMainBg.png");
-    castleMainFg = loadImage("assets/data/castle/castleMainFg.png");
-    castleRubble = loadImage("assets/data/castle/castleRubble.png");
-    clouds = loadImage("assets/data/clouds.svg");
-    knight = loadImage("assets/data/castle/knight.png");
+    castleMainBg = loadImage("Assets/data/castle/castleMainBg.png");
+    castleMainFg = loadImage("Assets/data/castle/castleMainFg.png");
+    castleRubble = loadImage("Assets/data/castle/castleRubble.png");
+    clouds = loadImage("Assets/data/clouds.svg");
+    knight = loadImage("Assets/data/castle/knight.png");
 }
 
 // Function to wrap text to the next line
