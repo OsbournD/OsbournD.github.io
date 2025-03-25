@@ -3,5 +3,5 @@ function playBotsAgainstTheWeb () {
 }
 
 function playTheSwigglesGame () {
-    alert("Redirect to The Swiggles Game here.")
+    window.location.href = "../index.html";
 }
