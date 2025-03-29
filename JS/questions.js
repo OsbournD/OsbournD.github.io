@@ -88,7 +88,7 @@ function fillQuestionsStack()
 //JSON method
 
 
-// Choose JSON File based on localStorage
+//Choose JSON File based on localStorage
 function getSelectedJsonFile() {
     // Get the selected file from localStorage, or use default if not set
     const selectedFile = localStorage.getItem('selectedQuestionFile') || 'Questions.json';
@@ -96,19 +96,19 @@ function getSelectedJsonFile() {
     return selectedFile;
 }
 
-// JSON method - modified to use the selected file
+//JSON method - modified to use the selected file
 fetch(`../JSON/${getSelectedJsonFile()}`)
     .then(response => response.json())
     .then(questions => {
         for (let k = 0; k < questions.length; k++) {
             QandA2D[k] = [[questions[k].question, questions[k].type], questions[k].options, questions[k].answer];
         }
-        // Initialize the questions stack after loading
+        //Initialize the questions stack after loading
         fillQuestionsStack();
     })
     .catch(error => {
         console.error('Error loading JSON:', error);
-        // If there's an error, try to load the default file as a fallback
+        //If there's an error, try to load the default file as a fallback
         if (localStorage.getItem('selectedQuestionFile') && 
             localStorage.getItem('selectedQuestionFile') !== 'Questions.json') {
             console.log('Attempting to load default question set');
@@ -151,7 +151,7 @@ let mixedAnswers = [];
 
 function mixAnswers(answers) 
 {
-    // Shuffle the array using the Fisher-Yates algorithm
+    //Shuffle the array using the Fisher-Yates algorithm
     for (let i = answers.length - 1; i > 0; i--)
         {
             let j = Math.floor(Math.random() * (i + 1)); // Random index
@@ -180,7 +180,7 @@ function createSingleAnswerQuestion(currentSet, answers)
         alert('SA entered without meeting requirements '+currentSet[0][1]);
     }
 
-    // Update the popup content
+    //Update the popup content
     let popup = document.getElementById('questionPopup');
     popup.innerHTML = `
         <h2>${currentQuestion[0]}</h2>
@@ -324,7 +324,7 @@ function checkboxAnswerSelectionWithHiddenData(hiddenDataId, totalAnswersCount) 
         score++;
     }
 
-    // Update visual feedback and disable options
+    //Visual feedback
     options.forEach(option => {
         const value = decodeURIComponent(option.dataset.value);
         const isSelected = option.classList.contains('selected');
@@ -338,7 +338,7 @@ function checkboxAnswerSelectionWithHiddenData(hiddenDataId, totalAnswersCount) 
             option.classList.add('unselected-correct');
         }
 
-        // Disable the option
+        // Disable the answer
         option.disabled = true;
         option.onclick = null;
         option.style.cursor = 'default';
