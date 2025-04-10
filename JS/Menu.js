@@ -1,6 +1,8 @@
 ﻿const menuMusic = new Audio("../GameMusic/685206__x1shi__video-game-music-seamless.mp3");
 
-
+if (!localStorage.getItem("musicDisabled")) {
+    localStorage.setItem('musicDisabled', false);
+}
 
 function setup() {
     var isMusicDisabled = localStorage.getItem('musicDisabled') === 'false';
